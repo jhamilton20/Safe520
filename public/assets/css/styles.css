@@ -135,6 +135,11 @@ h1 {
 
 /* dropdown button styling */
 
+
+
+
+
+
 body {
     width: 100%;
     height: 100%;
@@ -303,3 +308,271 @@ h1 {
     margin: 50px auto;
     z-index: 100;
   }
+
+
+
+
+  /* login page styling */
+
+  .fullWidth {
+    background-image: url("Assets/TucsonCity.jpeg");
+    width: 100%;
+    height: 100%;
+    background-position: top;
+    background-size: cover;
+    position: absolute;
+}
+.topCentered {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 40px;
+    color: rgb(236, 163, 5);
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    
+  }
+.responsive {
+    max-width: 100%;
+    height: auto;
+  }
+.container {
+    position: relative;
+  }
+body
+{
+    margin: 0;
+    padding: 0;
+    background: #EFEFEF;
+    font-size: 16px;
+    color: rgb(226, 76, 17);
+    font-family: sans-serif;
+    font-weight: 600;
+   
+}
+#login-box
+{
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    margin: 5% auto;
+    height: 400px;
+    width: 600px;
+    background: rgba(255,255,255,.75);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+} 
+.left-box
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px; 
+     
+}
+h1
+{
+    margin: 0 0 20px 0;
+    font-weight: 300;
+    font-size: 28px;
+    display: block;
+      
+}
+input[type="text"],
+input[type="password"]
+{
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 4px;
+    width: 220px;
+    height: 32px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #aaa;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+input[type="submit"]
+{
+    margin-bottom: 28px;
+    width: 120px;
+    height: 32px;
+    background: #F44336;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.2s ease;
+    cursor: pointer;
+    
+}
+input[type="submit"]:hover,
+input[type="submit"]:focus
+{
+    background: #FF5722;
+    transition: 0.2s ease;
+}
+.right-box
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 153, 255, 0);
+}
+.or
+{
+    position: absolute;
+    top: 180px;
+    left: 280px;
+    width: 40px;
+    height: 40px;
+    background: #EFEFEF;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    line-height: 40px;
+    text-align: center;
+}
+.right-box .signin
+{
+    display: block;
+    margin-bottom: 40px;
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+    
+}
+button
+{
+    margin-bottom: 20px;
+    width: 220px;
+    height: 36px;
+    border: none;
+    border-radius: 2px;
+    color: rgb(75, 69, 69);
+    font-family: sans-serif;
+    font-weight: 500;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+input[type="submit2"]
+{
+    margin-bottom: 28px;
+    width: 120px;
+    height: 32px;
+    background: #F44336;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 500;    
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.2s ease;
+    cursor: pointer;
+    
+}
+input[type="submit2"]:hover,
+input[type="submit2"]:focus
+{
+    background: #FF5722;
+    transition: 0.2s ease;
+}
+@media only screen and (max-width: 770px) {
+    #login-box {
+        width: 100%;
+    }
+    .fullWidth {
+        background-image: url("Assets/TucsonCity.jpeg");
+        width: 100%;
+        height: 100%;
+        background-position: top;
+        background-size: cover;
+        position: absolute;
+    }
+    
+    
+    .topCentered {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 40px;
+        color: rgb(236, 163, 5);
+        font-family: Georgia, Times, 'Times New Roman', serif;
+    }    
+    .right-box
+{
+    position: relative;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+    .or
+{
+    position: relative;
+    top: 180px;
+    left: 280px;
+    width: 40px;
+    height: 40px;
+    background: #EFEFEF;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    line-height: 40px;
+    text-align: center;
+    display: none;    
+}
+    .left-box
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px; 
+     
+}
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

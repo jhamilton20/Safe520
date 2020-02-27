@@ -33,8 +33,23 @@ $(window).load(function() {
     )
 });
 
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+function myFunction1() {
+    document.getElementById("myDropdown-1").classList.toggle("show");
+
+    if($( "#myDropdown-2" ).is( ":visible" )){
+        document.getElementById("myDropdown-2").classList.toggle("show"); 
+    }
+    // document.getElementById("myDropdownAmount").classList.toggle("show");
+    
+  }
+
+  function myFunction2() {
+    document.getElementById("myDropdown-2").classList.toggle("show");
+    // document.getElementById("myDropdownAmount").classList.toggle("show");
+    if($( "#myDropdown-1" ).is( ":visible" )){
+        document.getElementById("myDropdown-1").classList.toggle("show"); 
+    }
+    
   }
   
   
@@ -50,3 +65,5 @@ function myFunction() {
       }
     }
   };
+
+  
