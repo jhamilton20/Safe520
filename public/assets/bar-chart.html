@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://code.jquery.com/jquery.js"></script> 
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="js/script.js"></script>
     <script src="js/data.js"></script> 
+    
 </head>
 <body>
     <nav class="navbar">
@@ -21,6 +23,28 @@
         </ul>
     </nav>
     <h1>Most Common Incidents in 2019</h1>
+    <div class="ddwrapper">
+        <div class="dropdown">
+           <button onclick="myFunction()" class="dropbtn">Year</button>
+           <div id="myDropdown" class="dropdown-content">
+             <a href="#2020">2020</a>
+             <a href="#2019">2019</a>
+             <a href="#2018">2018</a>
+           </div>
+         </div>
+         <div class="dropdown">
+           <button onclick="myFunction()" class="dropbtn">Amount</button>
+           <div id="myDropdown" class="dropdown-content">
+             <a href="#2020">0-100</a>
+             <a href="#2019">0-200</a>
+             <a href="#2018">0-300</a>
+             <a href="#2018">0-400</a>
+             <a href="#2018">0-500</a>
+             
+           </div>
+         </div>
+   
+   </div>
     <div class="contentWrapper">
          <!-- Bar Chart -->
         <div id="graphic"></div>

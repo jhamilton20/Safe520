@@ -13,3 +13,4 @@ CREATE TABLE  signUp(
     Username varchar (250) NOT NULL,
     Password varchar (250) NOT NULL
   );
+  
