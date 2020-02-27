@@ -1,0 +1,134 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    background-color: #1c3952;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+}
+
+.navbar ul li {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    text-align: center;
+    margin: 10px 20px;
+}
+
+a:link,a:visited,a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.contentWrapper {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    position: relative;
+}
+
+h1 {
+    margin: 120px auto 50px auto;    
+}
+
+.leafletMap {
+    width: 100%;
+    height: 500px;
+    display: block;
+    position: relative;
+    background-color: #5a86ab;
+}
+
+.barChart {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    display: block;
+    margin: 1em auto;
+}
+
+.list-data {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
+.list-data p {
+    margin: .25em 0;
+    padding: 0;
+}
+
+.list {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    font-family: 'Roboto', sans-serif;
+    overflow: scroll;
+    height: 500px;
+    padding: 1em;
+    background-color: #e0e0e0;
+    box-sizing: border-box;
+}
+
+.liner {
+    width: 100%;
+    display: block;
+    border: 1px solid #000;
+    margin: 10px 0;
+}
+
+/* d3 styles */
+.bar {
+    fill: #5f89ad;
+}
+
+.axis {
+    font-size: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    display: none;
+}
+
+.label {
+    font-size: 13px;
+}
+
+
+@media only screen and (max-width: 770px) {
+    .navbar ul {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .list-data p {
+        font-size: .85em;
+    }
+}
