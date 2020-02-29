@@ -12,12 +12,6 @@ app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
 app.use(express.static('public'))
 
-// map route to dynamically create map based on dataset
-app.get("/"), function(req, res){
-    
-    let toRedir = path.join(__pathname + "/login.html")
-    res.send("test")
-}
 
 app.get("/map", function(req, res){
 
@@ -87,35 +81,51 @@ app.get("/map", function(req, res){
 
 app.post("/newUser",function(req,res){
     //console.log(req)
-    let user = req.query.username
-    let email = req.query.email
-    let defURL = ""
+    let user = req.query.u
+    let email = req.query.e
+    let defURL = "/login.html"
     let queryString;
-    hash = bcrypt.hashSync(req.query.password, 10) 
+    hash = bcrypt.hashSync(req.query.p, 10) 
 
-    queryString = "insert into table logins(username, email, password) values (" + user + ", " + email + ", " + hash + ");"
+    queryString = "insert into logins(username, email, password) values ('" + user + "', '" + email + "', '" + hash + "');"
     console.log(queryString)
-    connection.query(queryString).then(function(err, result){
+    connection.query(queryString, function(err, result){
         if (err){
             console.log(err)
         }else{
             defURL = "/map?year=2019&number=300"
             }
         res.send(defURL)
+        console.log(defURL)
     })    
 })
 
 app.post("/assess", function(req,res){
-    let user = req.query.username
-    //let email = req.query.email
-    let defURL = ""
-    hash = bcrypt.hashSync(req.query.password, 10)  
-    let queryString = "select * from table logins where username =" + user +"AND password = "+ hash + " ;"
+    let user = req.query.u
+    //let email = req.query.e
+    let defURL = "/login.html"
+    pass = req.query.p  
+    let queryString = "select password from logins where username = '" + user +"';"
     console.log(queryString)
-    connection.query(queryString).then(function(err, data){
+    connection.query(queryString,function(err, data){
+        if (err){
+            console.log(err)
+        }
         console.log(data)
+        if (bcrypt.compare(pass, data[0].password, function(err, result){return result})){
+            res.send("/map?year=2019&number=300")
+        }
+        else{
+            res.send(defURL)
+        }
+        console.log(defURL)
     })
 })
+
+// default route
+app.get("/"), function(req, res){
+    res.send("a")
+}
 
 
 
