@@ -14,9 +14,9 @@
 <body>
     <nav class="navbar">
         <ul>
-            <li><a href="index.html">Incidents</a></li>
-            <li><a href="bar-chart.html">Bar Chart</a></li>
-            <li><a href="pie-chart.html">Pie Chart</a></li>
+            <li><a href="index.html">incidents</a></li>
+            <li><a href="chart-one.html">chart 1</a></li>
+            <li><a href="chart-two.html">chart 2</a></li>
         </ul>
     </nav>
 
@@ -25,23 +25,27 @@
         <div class="dropdown">
            <button onclick="myFunction1()" class="dropbtn">Year</button>
            <div id="myDropdown-1" class="dropdown-content">
-             <a href="#2020">2020</a>
-             <a href="#2019">2019</a>
-             <a href="#2018">2018</a>
-           </div>
+            <a id="yr20" href="#2020">2020</a>
+            <a id="yr19" href="#2019">2019</a>
+            <a id="yr18" href="#2018">2018</a>
+            <a id="yr17" href="#2018">2017</a> 
+            <a id="yr16"href="#2018">2016</a>
+            <a id="yr15" href="#2018">2015</a>
+          </div>
          </div>
          <div class="dropdown">
            <button onclick="myFunction2()" class="dropbtn">Amount</button>
            <div id="myDropdown-2" class="dropdown-content">
-             <a href="#2020">0-100</a>
-             <a href="#2019">0-200</a>
-             <a href="#2018">0-300</a>
-             <a href="#2018">0-400</a>
-             <a href="#2018">0-500</a>
-             
+             <a id="set100" href="#100">0-100</a>
+             <a id="set200" href="#200">0-200</a>
+             <a id="set300" href="#300">0-300</a>
+             <a id="set400" href="#400">0-400</a>
+             <a id="set500" href="#500">0-500</a>
            </div>
          </div>
-   
+         <button id="submit" class="submit">
+             Submit
+         </button>
    </div>
     <!-- MAP -->
     <div class="leafletMap"></div>

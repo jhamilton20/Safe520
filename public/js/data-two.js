@@ -16,36 +16,38 @@ $(window).load(function() {
             console.log(response);
 
             let incident = [];
-            let incidentCount = [];
+            let indcidentDate = [];
             
             // loop thru all 2019 data & grab event description
             for (let i = 0; i < response.features.length; i++) {
 
+                let date = new Date(response.features[i].attributes.DATE_REPT).toLocaleString().split(',')[0];
+
                 // create new object
                 let event = {
-                    desc: response.features[i].attributes.STATUTDESC
+                    desc: date
                 }
                 // create new array of objects
                 incident.push(event);
 
-                if (event.desc in incidentCount) {
-                    incidentCount[event.desc] += 1;
+                if (event.desc in indcidentDate) {
+                    indcidentDate[event.desc] += 1;
                 } else {
-                    incidentCount[event.desc] = 1;
+                    indcidentDate[event.desc] = 1;
                 }
 
                 console.log('incident arr')
-                console.log(incidentCount)
+                console.log(indcidentDate)
 
             }
 
             // Loop to print keys 
-            for (let [key, value] of Object.entries(incidentCount)) {
+            for (let [key, value] of Object.entries(indcidentDate)) {
                 $('.list-data').append(`<p> ${key} : ${value}</p>`)
             }   
 
             // d3 chart taking an associative array
-            data = d3.entries(incidentCount);
+            data = d3.entries(indcidentDate);
             console.log(data)
 
             // sort bars based on value
@@ -58,7 +60,7 @@ $(window).load(function() {
                 top: 15,
                 right: 25,
                 bottom: 15,
-                left: 250
+                left: 75
             };
 
             let height = 3000 - margin.top - margin.bottom,
