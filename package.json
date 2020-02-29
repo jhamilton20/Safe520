@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/jhamilton20/ProjectTwo/issues"
   },
-  "homepage": "https://github.com/jhamilton20/ProjectTwo#readme"
+  "homepage": "https://github.com/jhamilton20/ProjectTwo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
