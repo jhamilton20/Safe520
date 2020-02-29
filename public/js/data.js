@@ -18,7 +18,7 @@ $(window).load(function() {
             let incident = [];
             let incidentCount = [];
             
-            // loop thru all 2019 data & grab event descriptions
+            // loop thru all 2019 data & grab event description
             for (let i = 0; i < response.features.length; i++) {
 
                 // create new object
@@ -33,7 +33,16 @@ $(window).load(function() {
                 } else {
                     incidentCount[event.desc] = 1;
                 }
+
+                console.log('incident arr')
+                console.log(incidentCount)
+
             }
+
+            // Loop to print keys 
+            for (let [key, value] of Object.entries(incidentCount)) {
+                $('.list-data').append(`<p> ${key} : ${value}</p>`)
+            }   
 
             // d3 chart taking an associative array
             data = d3.entries(incidentCount);
@@ -116,7 +125,10 @@ $(window).load(function() {
                 .text(function (d) {
                     return d.value;
                 });    
-              
+                
         }
     )
 });
+
+
+

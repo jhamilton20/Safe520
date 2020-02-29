@@ -11,7 +11,7 @@ body {
     position: fixed;
     background-color: #1c3952;
     top: 0;
-    z-index: 100;
+    z-index: 500;
 }
 
 .navbar ul {
@@ -134,7 +134,6 @@ h1 {
     font-size: 16px;
     border: none;
     cursor: pointer;
-
   }
   
   /* Dropdown button on hover & focus */
@@ -153,8 +152,8 @@ h1 {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
+    background-color: #fff;
+    min-width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
@@ -326,6 +325,15 @@ button {
     cursor: pointer;
 }
 
+.submit {
+    background-color: #1c3952;
+    color: white;
+    padding: 1em;
+    display: block;
+    margin: 0 auto;
+    font-size: 1em;
+}
+
 input[type="submit2"] {
     margin-bottom: 28px;
     width: 120px;
@@ -438,6 +446,11 @@ input[type="submit2"]:focus {
         font-size: .85em;
     }
   
+
+    /* GRAPHS */
+    #graphic {
+        display: none;
+    }
 }
 
 

@@ -20,95 +20,118 @@ $(window).load(function() {
             // loop thru all 2019 data & grab event descriptions
             for (let i = 0; i < response.features.length; i++) {
                 
-                // snag date
-                //let date = new Date(response.features[i].attributes.DATE_REPT).toLocaleString().split(',')[0];
+                // snag & format date
+                let date = new Date(response.features[i].attributes.DATE_REPT).toLocaleString().split(',')[0];
 
-                let date = new Date(response.features[i].attributes.DATE_REPT).toString();
-
-                console.log(date);
+                //let date = new Date(response.features[i].attributes.DATE_REPT);
 
                 // create new object
                 let event = {
                     desc: date,
-                    count: 1
                 }
 
                 // create new array of objects
                 incidentDate.push(event);
+
+                if (event.desc in incidentDate) {
+                    incidentDate[event.desc] += 1;
+                } else {
+                    incidentDate[event.desc] = 1;
+                }
+
+                console.log('incident arr')
+                console.log(incidentDate)
+
             }
 
+            // Loop to print keys 
+            for (let [key, value] of Object.entries(incidentDate)) {
+                $('.list-data').append(`<p> ${key} : ${value}</p>`)
+            }  
+
+
             // d3 chart taking an associative array
-            data = d3.entries(incidentDate)
+            data = d3.entries(incidentDate);
             console.log(data)
 
-            // Set the dimensions of the canvas / graph
-            var margin = {top: 30, right: 20, bottom: 30, left: 50},
-                width = 600 - margin.left - margin.right,
-                height = 270 - margin.top - margin.bottom;
+            // sort bars based on value
+            data = data.sort(function (a, b) {
+                return d3.ascending(a.value, b.value);
+            })
 
-            // Parse the date / time
-            var parseDate = d3.time.format("%d-%b-%Y");
+            // set up svg using margin conventions
+            let margin = {
+                top: 15,
+                right: 25,
+                bottom: 15,
+                left: 250
+            };
 
-            // Set the ranges
-            var x = d3.time.scale().range([0, width]);
-            var y = d3.scale.linear().range([height, 0]);
+            let height = 3000 - margin.top - margin.bottom,
+                width = .25 * height - margin.left - margin.right;
+                //height = 3000 - margin.top - margin.bottom;
 
-            // Define the axes
-            var xAxis = d3.svg.axis().scale(x)
-                .orient("bottom").ticks(5);
-
-            var yAxis = d3.svg.axis().scale(y)
-                .orient("left").ticks(5);
-
-            // Define the line
-            var valueline = d3.svg.line()
-                .x(function(d) { return x(d.value.desc); })
-                .y(function(d) { return y(d.value.key); });
-                
-            // Adds the svg canvas
-            var svg = d3.select("#graphic")
-                .append("svg")
-                    .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.top + margin.bottom)
+            let svg = d3.select("#graphic").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
                 .append("g")
-                    .attr("transform", 
-                        "translate(" + margin.left + "," + margin.top + ")");
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            // Get the data
+            let x = d3.scale.linear()
+                .range([0, width])
+                .domain([0, d3.max(data, function (d) {
+                    return d.value;
+                })]);
 
-                data.forEach(function(d) {
-                    d.value.desc = parseDate(d.value.desc);
-                    d.value.key = +d.value.key;
+            let y = d3.scale.ordinal()
+                .rangeRoundBands([height, 0], .1)
+                .domain(data.map(function (d) {
+                    return d.key;
+                }));
+
+            // make y axis to show bar names
+            let yAxis = d3.svg.axis()
+                .scale(y)
+                //no tick marks
+                .tickSize(0)
+                .orient("left");
+
+            let gy = svg.append("g")
+                .attr("class", "y axis")
+                .call(yAxis)
+
+            let bars = svg.selectAll(".bar")
+                .data(data)
+                .enter()
+                .append("g")
+
+            // append rects
+            bars.append("rect")
+                .attr("class", "bar")
+                .attr("y", function (d) {
+                    return y(d.key);
+                })
+                .attr("height", y.rangeBand())
+                .attr("x", 0)
+                .attr("width", function (d) {
+                    return x(d.value);
                 });
 
-                // Scale the range of the data
-                x.domain(d3.extent(data, function(d) { return d.value.desc; }));
-                y.domain([0, d3.max(data, function(d) { return d.value.key; })]);
-
-                // Add the valueline path.
-                svg.append("path")
-                    .attr("class", "line")
-                    .attr("d", valueline(data));
-
-                // Add the scatterplot
-                svg.selectAll("dot")
-                    .data(data)
-                .enter().append("circle")
-                    .attr("r", 3.5)
-                    .attr("cx", function(d) { return x(d.value.desc); })
-                    .attr("cy", function(d) { return y(d.value.key); });
-
-                // Add the X Axis
-                svg.append("g")
-                    .attr("class", "x axis")
-                    .attr("transform", "translate(0," + height + ")")
-                    .call(xAxis);
-
-                // Add the Y Axis
-                svg.append("g")
-                    .attr("class", "y axis")
-                    .call(yAxis);
-            
-    }
+            // add a value label to the right of each bar
+            bars.append("text")
+                .attr("class", "label")
+                //y position of the label is halfway down the bar
+                .attr("y", function (d) {
+                    return y(d.key) + y.rangeBand() / 2 + 4;
+                })
+                // x position is 3 pixels to the right of the bar
+                .attr("x", function (d) {
+                    return x(d.value) + 3;
+                })
+                .text(function (d) {
+                    return d.value;
+                });    
+                
+        }
     )
 });
