@@ -2,9 +2,6 @@ $(window).load(function() {
     
     let queryUrl = 'https://publicgis.tucsonaz.gov/open/rest/services/OpenData/OpenData_PublicSafety/MapServer/48/query?where=1%3D1&outFields=*&outSR=4326&f=json';
 
-    // 2020 api call
-    // https://publicgis.tucsonaz.gov/open/rest/services/OpenData/OpenData_PublicSafety/MapServer/54/query?where=1%3D1&outFields=*&outSR=4326&f=json
-
 
     $.ajax({
         url: queryUrl,

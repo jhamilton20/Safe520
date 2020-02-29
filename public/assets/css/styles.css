@@ -121,139 +121,12 @@ h1 {
     font-size: 13px;
 }
 
-
-@media only screen and (max-width: 770px) {
-    .navbar ul {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .list-data p {
-        font-size: .85em;
-    }
-}
-
 /* dropdown button styling */
 
-
-
-
-
-
-body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-.navbar {
-    width: 100%;
-    height: 70px;
-    position: fixed;
-    background-color: #1c3952;
-    top: 0;
-    z-index: 100;
-}
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    top: 50%;
-    transform: translateY(-50%);
-    position: relative;
-}
-.navbar ul li {
-    font-family: 'Roboto', sans-serif;
-    color: white;
-    text-align: center;
-    margin: 10px 20px;
-}
-a:link,a:visited,a:hover {
-    color: white;
-    text-decoration: none;
-}
-.contentWrapper {
-    position: relative;
-    width: 80%;
-    margin: 0 auto;
-}
-h1, h2 {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    position: relative;
-}
-h1 {
-    margin: 120px auto 50px auto;    
-}
-.leafletMap {
-    width: 100%;
-    height: 500px;
-    display: block;
-    position: relative;
-    background-color: #5a86ab;
-}
-.barChart {
-    width: 100%;
-    height: 500px;
-    position: relative;
-    display: block;
-    margin: 1em auto;
-}
-.list-data {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-}
-.list-data p {
-    margin: .25em 0;
-    padding: 0;
-}
-.list {
-    display: block;
-    position: relative;
-    margin: 0 auto;
-    width: 80%;
-    font-family: 'Roboto', sans-serif;
-    overflow: scroll;
-    height: 500px;
-    padding: 1em;
-    background-color: #e0e0e0;
-    box-sizing: border-box;
-}
-.liner {
-    width: 100%;
-    display: block;
-    border: 1px solid #000;
-    margin: 10px 0;
-}
-/* d3 styles */
-.bar {
-    fill: #5f89ad;
-}
-.axis {
-    font-size: 10px;
-    font-family: 'Roboto Condensed', sans-serif;
-}
-.axis path,
-.axis line {
-    fill: none;
-    display: none;
-}
 .label {
     font-size: 13px;
 }
-@media only screen and (max-width: 770px) {
-    .navbar ul {
-        width: 100%;
-        justify-content: center;
-    }
-    .list-data p {
-        font-size: .85em;
-    }
-}
+
 .dropbtn {
     background-color: #3498DB;
     color: white;
@@ -296,7 +169,8 @@ h1 {
   /* Change color of dropdown links on hover */
   .dropdown-content a:hover {background-color: #ddd}
   
-  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  /* Show the dropdown menu */
+
   .show {display:block;}
 
   .ddwrapper{
@@ -308,19 +182,17 @@ h1 {
     z-index: 100;
   }
 
-
-
-
   /* login page styling */
 
   .fullWidth {
-    background-image: url("Assets/TucsonCity.jpeg");
+    background-image: url("../img/TucsonCity.jpeg");
     width: 100%;
     height: 100%;
     background-position: top;
     background-size: cover;
     position: absolute;
 }
+
 .topCentered {
     position: absolute;
     top: 10%;
@@ -330,28 +202,18 @@ h1 {
     font-size: 40px;
     color: rgb(236, 163, 5);
     font-family: Georgia, Times, 'Times New Roman', serif;
-    
-  }
+}
+
 .responsive {
     max-width: 100%;
     height: auto;
-  }
+}
+
 .container {
     position: relative;
-  }
-body
-{
-    margin: 0;
-    padding: 0;
-    background: #EFEFEF;
-    font-size: 16px;
-    color: rgb(226, 76, 17);
-    font-family: sans-serif;
-    font-weight: 600;
-   
 }
-#login-box
-{
+
+#login-box {
     top: 50%;
     transform: translate(-50%,-50%);
     position: absolute;
@@ -362,8 +224,8 @@ body
     background: rgba(255,255,255,.75);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 } 
-.left-box
-{
+
+.left-box {
     position: absolute;
     top: 0;
     left: 0;
@@ -373,17 +235,15 @@ body
     height: 400px; 
      
 }
-h1
-{
+h1.login-header {
     margin: 0 0 20px 0;
-    font-weight: 300;
+    font-weight: 700;
     font-size: 28px;
     display: block;
       
 }
 input[type="text"],
-input[type="password"]
-{
+input[type="password"] {
     display: block;
     box-sizing: border-box;
     margin-bottom: 20px;
@@ -398,8 +258,7 @@ input[type="password"]
     font-size: 15px;
     transition: 0.2s ease;
 }
-input[type="submit"]
-{
+input[type="submit"] {
     margin-bottom: 28px;
     width: 120px;
     height: 32px;
@@ -415,13 +274,11 @@ input[type="submit"]
     
 }
 input[type="submit"]:hover,
-input[type="submit"]:focus
-{
+input[type="submit"]:focus {
     background: #FF5722;
     transition: 0.2s ease;
 }
-.right-box
-{
+.right-box {
     position: absolute;
     top: 0;
     right: 0;
@@ -433,8 +290,8 @@ input[type="submit"]:focus
     background-position: center;
     background-color: rgba(0, 153, 255, 0);
 }
-.or
-{
+
+.or {
     position: absolute;
     top: 180px;
     left: 280px;
@@ -446,8 +303,7 @@ input[type="submit"]:focus
     line-height: 40px;
     text-align: center;
 }
-.right-box .signin
-{
+.right-box .signin {
     display: block;
     margin-bottom: 40px;
     font-size: 28px;
@@ -455,11 +311,11 @@ input[type="submit"]:focus
     text-align: center;
     
 }
-button
-{
+
+button {
     margin-bottom: 20px;
     width: 220px;
-    height: 36px;
+    height: auto;
     border: none;
     border-radius: 2px;
     color: rgb(75, 69, 69);
@@ -492,27 +348,44 @@ input[type="submit2"] {
     text-transform: uppercase;
     transition: 0.2s ease;
     cursor: pointer;
-    
 }
+
 input[type="submit2"]:hover,
-input[type="submit2"]:focus
-{
+input[type="submit2"]:focus {
     background: #FF5722;
     transition: 0.2s ease;
 }
+
+
+/* TABLET STYLES */
+@media only screen and (max-width: 1024px) and (min-width: 770px) { 
+
+}
+
+
+
+/* MOBILE STYLES */
 @media only screen and (max-width: 770px) {
+
+    /* LOGIN PG */
+
     #login-box {
         width: 100%;
+        height: auto;
+        position: relative;
+        top: 150px;
+        transform: none;
+        left: 0;
     }
     .fullWidth {
-        background-image: url("Assets/TucsonCity.jpeg");
+        background-image: url("../img/TucsonCity.jpeg");
         width: 100%;
-        height: 100%;
+        height: 140%;
         background-position: top;
         background-size: cover;
         position: absolute;
+        top: 0;
     }
-    
     
     .topCentered {
         position: absolute;
