@@ -103,7 +103,7 @@ app.post("/newUser",function(req,res){
 app.post("/assess", function(req,res){
     let user = req.query.u
     //let email = req.query.e
-    let defURL = "/data.html"
+    let defURL = "/"
     pass = req.query.p  
     let queryString = "select password from logins where username = '" + user +"';"
     console.log(queryString)
@@ -112,17 +112,13 @@ app.post("/assess", function(req,res){
             console.log(err)
         }
         console.log(data)
-        try{
-            if (bcrypt.compare(pass, data[0].password, function(err, result){return result})){
+            if (bcrypt.compare(pass, data[0].password || null, function(err, result){return result})){
                 res.send("/data.html")
             }
             else{
+                console.log("fail")
                 res.send(defURL)
             }
-        }
-        catch{
-            res.send(defURL)
-        }
     })
 })
 
