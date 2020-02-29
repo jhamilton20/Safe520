@@ -5,7 +5,7 @@ const app = express();
 const mysql = require("mysql")
 const connection = require("./config/connection.js")
 let path = require("path")
-let port = process.env.port || 8080;
+let port = process.env.PORT || 8080;
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 app.engine("handlebars", exphbs());
