@@ -15,43 +15,39 @@ $(window).load(function() {
     }).then(function(response) {
             console.log(response);
 
-            let incidentDate = [];
-
-            // loop thru all 2019 data & grab event descriptions
+            let incident = [];
+            let indcidentDate = [];
+            
+            // loop thru all 2019 data & grab event description
             for (let i = 0; i < response.features.length; i++) {
-                
-                // snag & format date
-                let date = new Date(response.features[i].attributes.DATE_REPT).toLocaleString().split(',')[0];
 
-                //let date = new Date(response.features[i].attributes.DATE_REPT);
+                let date = new Date(response.features[i].attributes.DATE_REPT).toLocaleString().split(',')[0];
 
                 // create new object
                 let event = {
-                    desc: date,
+                    desc: date
                 }
-
                 // create new array of objects
-                incidentDate.push(event);
+                incident.push(event);
 
-                if (event.desc in incidentDate) {
-                    incidentDate[event.desc] += 1;
+                if (event.desc in indcidentDate) {
+                    indcidentDate[event.desc] += 1;
                 } else {
-                    incidentDate[event.desc] = 1;
+                    indcidentDate[event.desc] = 1;
                 }
 
                 console.log('incident arr')
-                console.log(incidentDate)
+                console.log(indcidentDate)
 
             }
 
             // Loop to print keys 
-            for (let [key, value] of Object.entries(incidentDate)) {
+            for (let [key, value] of Object.entries(indcidentDate)) {
                 $('.list-data').append(`<p> ${key} : ${value}</p>`)
-            }  
-
+            }   
 
             // d3 chart taking an associative array
-            data = d3.entries(incidentDate);
+            data = d3.entries(indcidentDate);
             console.log(data)
 
             // sort bars based on value
@@ -64,7 +60,7 @@ $(window).load(function() {
                 top: 15,
                 right: 25,
                 bottom: 15,
-                left: 250
+                left: 75
             };
 
             let height = 3000 - margin.top - margin.bottom,
@@ -135,3 +131,6 @@ $(window).load(function() {
         }
     )
 });
+
+
+
