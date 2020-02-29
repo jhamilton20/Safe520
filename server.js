@@ -85,9 +85,9 @@ app.post("/newUser",function(req,res){
     let email = req.query.e
     let defURL = "/"
     let queryString;
-    hash = bcrypt.hashSync(req.query.p, 10) 
+    let hash = bcrypt.hashSync(req.query.p, saltRounds) 
 
-    queryString = "insert into logins(username, email, password) values ('" + user + "', '" + email + "', '" + hash + "');"
+    queryString = "insert into logins(username, email, pw) values ('" + user + "', '" + email + "', '" + hash + "');"
     console.log(queryString)
     connection.query(queryString, function(err, result){
         if (err){
@@ -104,21 +104,27 @@ app.post("/assess", function(req,res){
     let user = req.query.u
     //let email = req.query.e
     let defURL = "/"
-    pass = req.query.p  
-    let queryString = "select password from logins where username = '" + user +"';"
+    let pass = req.query.p  
+    let queryString = "select pw from logins where username = '" + user +"';"
     console.log(queryString)
     connection.query(queryString,function(err, data){
         if (err){
             console.log(err)
         }
         console.log(data)
-            if (bcrypt.compare(pass, data[0].password || null, function(err, result){return result})){
+        try{
+            if (bcrypt.compareSync(pass, data[0].pw, function(err, result){return result})){
                 res.send("/data.html")
             }
             else{
-                console.log("fail")
-                res.send(defURL)
+                console.log("failed")
+                res.send("/")
             }
+        }
+        catch{     
+                console.log("err")
+                res.send(defURL)
+        }
     })
 })
 
