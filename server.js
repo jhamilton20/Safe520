@@ -45,7 +45,7 @@ app.get("/map", function(req, res){
    else if (year == 2017){
         yearIndex = 3;
     }
-
+​
    else if (year == 2016){
         yearIndex = 4;
     }
@@ -129,5 +129,8 @@ app.get("/"), function(req, res){
 
 
 
+​
+​
+​
 app.listen(port);
 console.log("app listening on port " + port);
