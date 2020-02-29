@@ -83,7 +83,7 @@ app.post("/newUser",function(req,res){
     //console.log(req)
     let user = req.query.u
     let email = req.query.e
-    let defURL = "/login.html"
+    let defURL = "/"
     let queryString;
     hash = bcrypt.hashSync(req.query.p, 10) 
 
@@ -93,7 +93,7 @@ app.post("/newUser",function(req,res){
         if (err){
             console.log(err)
         }else{
-            defURL = "/map?year=2019&number=300"
+            defURL = "/data.html"
             }
         res.send(defURL)
         console.log(defURL)
@@ -103,7 +103,7 @@ app.post("/newUser",function(req,res){
 app.post("/assess", function(req,res){
     let user = req.query.u
     //let email = req.query.e
-    let defURL = "/login.html"
+    let defURL = "/data.html"
     pass = req.query.p  
     let queryString = "select password from logins where username = '" + user +"';"
     console.log(queryString)
@@ -112,20 +112,19 @@ app.post("/assess", function(req,res){
             console.log(err)
         }
         console.log(data)
-        if (bcrypt.compare(pass, data[0].password, function(err, result){return result})){
-            res.send("/map?year=2019&number=300")
+        try{
+            if (bcrypt.compare(pass, data[0].password, function(err, result){return result})){
+                res.send("/data.html")
+            }
+            else{
+                res.send(defURL)
+            }
         }
-        else{
+        catch{
             res.send(defURL)
         }
-        console.log(defURL)
     })
 })
-
-// default route
-app.get("/"), function(req, res){
-    res.send("a")
-}
 
 
 

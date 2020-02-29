@@ -7,14 +7,14 @@
     <title>Tucson Incidents</title>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://code.jquery.com/jquery.js"></script> 
-    <script src="js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </head>
 <body>
     <nav class="navbar">
         <ul>
-            <li><a href="index.html">incidents</a></li>
+            <li><a href="data.html">incidents</a></li>
             <li><a href="chart-one.html">chart 1</a></li>
             <li><a href="chart-two.html">chart 2</a></li>
         </ul>
@@ -24,18 +24,18 @@
 
     <div class="ddwrapper">
         <div class="dropdown">
-           <button onclick="myFunction1()" class="dropbtn">Year</button>
+           <button class="dropbtn">Year</button>
            <div id="myDropdown-1" class="dropdown-content">
             <a id="yr20" href="#2020">2020</a>
             <a id="yr19" href="#2019">2019</a>
             <a id="yr18" href="#2018">2018</a>
-            <a id="yr17" href="#2018">2017</a> 
-            <a id="yr16"href="#2018">2016</a>
-            <a id="yr15" href="#2018">2015</a>
+            <a id="yr17" href="#2017">2017</a> 
+            <a id="yr16"href="#2016">2016</a>
+            <a id="yr15" href="#2015">2015</a>
           </div>
          </div>
          <div class="dropdown">
-           <button onclick="myFunction2()" class="dropbtn">Amount</button>
+           <button class="dropbtn">Amount</button>
            <div id="myDropdown-2" class="dropdown-content">
              <a id="set100" href="#100">0-100</a>
              <a id="set200" href="#200">0-200</a>
@@ -44,15 +44,14 @@
              <a id="set500" href="#500">0-500</a>
            </div>
          </div>
-         <button id="submit" class="submit">
+         <button id="submit" onclick = "window.location.href = '/map?year=2019&number=300'" class="submit">
              Submit
          </button>
    </div>
 
 
     <!-- MAP -->
-    <div class="leafletMap"></div>
-
+    <div class="map"></div>
     <div class="contentWrapper">
         <h2>List of Incidents</h2>
         <div class="list-data">
