@@ -1,0 +1,17 @@
+
+<script>
+
+let markerGen = function(y,x, statutdesc){
+    let marker = L.marker([y, x]).addTo(baseMap);
+    marker.bindPopup(statutdesc).openPopup();
+    return marker
+}
+
+// 
+
+
+{{#each features}}
+markerGen({{this.geometry.y}}, {{this.geometry.x}}, '{{this.attributes.STATUTDESC}}')
+{{/each}}
+
+</script>
