@@ -32,3 +32,7 @@ Links
 
 https://secure-bastion-03140.herokuapp.com/ 
 
+
+![](public/jimages/bargraph.png)
+![](public/jimages/incedents.png)
+![](public/jimages/map.png)
