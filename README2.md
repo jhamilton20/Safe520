@@ -8,6 +8,8 @@ Getting Started
 
 Demo
 
+click on link and make an account 
+
 Built With
 
 JavaScript
@@ -29,3 +31,4 @@ James Hamilton, Andrew Bergheim, Michael Madrid, Jenna Miles
 Links
 
 https://secure-bastion-03140.herokuapp.com/ 
+
